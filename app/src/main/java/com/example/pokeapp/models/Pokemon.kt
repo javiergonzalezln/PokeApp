@@ -1,8 +1,9 @@
 package com.example.pokeapp.models
 
 import com.squareup.moshi.Json
+import kotlin.math.roundToInt
 
-class Pokemon (
+data class Pokemon (
     val abilities:List<Abilities>,
     val base_experience:Int,
     val forms : List<Form>,
@@ -20,7 +21,8 @@ class Pokemon (
     val sprites:Sprite,
     val stats:List<Stats>,
     val types:List<Types>,
-    val weight:Int
+    val weight:Int,
+    val price: Double = ((base_experience * 6 * 0.01) * 100.0).roundToInt() / 100.0
 )
 
 class Abilities(
